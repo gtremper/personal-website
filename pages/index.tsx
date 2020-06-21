@@ -1,10 +1,19 @@
-import styled from 'styled-components'
+import Head from 'next/head';
+import styled from 'styled-components';
 
 const Title = styled.h1`
-  color: red;
-  font-size: 50px;
+  color: palevioletred;
+  font-size: 64px;
+  text-align: center;
 `
 
 export default function Home() {
-  return <Title>My page</Title>
+  return (
+    <>
+      <Head>
+        <title>Graham's Website</title>
+      </Head>
+      <Title>Graham's Website</Title>
+    </>
+  );
 }
