@@ -1,12 +1,11 @@
-import Document, { DocumentContext } from 'next/document'
+import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   body {
-    background-color: papayawhip;
-    font-family: Helvetica;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
   }
-
   * {
     box-sizing: border-box;
   }
@@ -42,5 +41,17 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal()
     }
+  }
+
+  render() {
+    return (
+      <Html lang="us">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
   }
 }
