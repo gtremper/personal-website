@@ -13,11 +13,9 @@ const Layout: FunctionComponent = ({ children }) => {
             <NavLink name="Projects" href="/projects" />
           </ul>
         </Navbar>
-        <Title>
-          <Link href="/">
-            <a>Graham Tremper</a>
-          </Link>
-        </Title>
+        <Link href="/">
+          <Title>Graham Tremper</Title>
+        </Link>
       </Header>
       <Body>{children}</Body>
     </>
@@ -75,14 +73,11 @@ const Navbar = styled.nav`
 
 const Title = styled.h1`
   flex: none;
+  cursor:pointer;
   margin: 0;
   display: flex;
   align-items: center;
-  a,
-  a:visited {
-    text-decoration: none;
-    color: black;
-  }
+  color: black;
   @media (max-width: 700px) {
     display: none;
   }
