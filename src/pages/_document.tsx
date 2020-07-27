@@ -1,5 +1,11 @@
-import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
+import Document, {
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
+import { ServerStyleSheet, createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -13,8 +19,8 @@ const GlobalStyles = createGlobalStyle`
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
 
     try {
       ctx.renderPage = () =>
@@ -26,9 +32,9 @@ export default class MyDocument extends Document {
                 <App {...props} />
               </>
             ),
-        })
+        });
 
-      const initialProps = await Document.getInitialProps(ctx)
+      const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
         styles: (
@@ -37,9 +43,9 @@ export default class MyDocument extends Document {
             {sheet.getStyleElement()}
           </>
         ),
-      }
+      };
     } finally {
-      sheet.seal()
+      sheet.seal();
     }
   }
 
@@ -52,6 +58,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

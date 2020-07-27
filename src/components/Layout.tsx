@@ -1,6 +1,6 @@
-import { FunctionComponent } from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
+import { FunctionComponent } from "react";
+import styled from "styled-components";
+import Link from "next/link";
 
 const Layout: FunctionComponent = ({ children }) => {
   return (
@@ -19,18 +19,16 @@ const Layout: FunctionComponent = ({ children }) => {
           </Link>
         </Title>
       </Header>
-      <Body>
-        {children}
-      </Body>
+      <Body>{children}</Body>
     </>
-  )
-}
+  );
+};
 export default Layout;
 
 type NavLinkProps = {
   name: string;
   href: string;
-}
+};
 
 function NavLink({ name, href }: NavLinkProps) {
   return (
@@ -39,12 +37,12 @@ function NavLink({ name, href }: NavLinkProps) {
         <a>{name}</a>
       </Link>
     </li>
-  )
+  );
 }
 
 const Header = styled.header`
   padding: 0 20px;
-  background-color: #D6EFFF;
+  background-color: #d6efff;
   display: flex;
   min-height: 80px;
 `;
@@ -60,10 +58,11 @@ const Navbar = styled.nav`
   li {
     list-style: none;
     &:hover {
-      background-color: #C6E9FF;
+      background-color: #c6e9ff;
     }
   }
-  a, a:visited {
+  a,
+  a:visited {
     text-decoration: none;
     font-size: 24px;
     color: black;
@@ -79,7 +78,8 @@ const Title = styled.h1`
   margin: 0;
   display: flex;
   align-items: center;
-  a, a:visited {
+  a,
+  a:visited {
     text-decoration: none;
     color: black;
   }

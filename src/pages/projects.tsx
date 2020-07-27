@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import Kitten from 'components/kitten';
+import Head from "next/head";
+import Kitten from "components/kitten";
 
 export default function Projects() {
   return (
