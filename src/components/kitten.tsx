@@ -5,6 +5,10 @@ type KittenProps = {
 
 export default function Kitten({ width, height }: KittenProps) {
   return (
-    <img alt="kitten!" src={`https://placekitten.com/${width}/${height}`} />
+    <img
+      draggable
+      alt="kitten!"
+      src={`https://placekitten.com/${width}/${height}`}
+    />
   );
 }

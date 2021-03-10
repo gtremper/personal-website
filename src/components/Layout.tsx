@@ -1,8 +1,8 @@
-import { FunctionComponent } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-const Layout: FunctionComponent = ({ children }) => {
+const Layout: FC = ({ children }) => {
   return (
     <>
       <Header>
@@ -73,7 +73,7 @@ const Navbar = styled.nav`
 
 const Title = styled.h1`
   flex: none;
-  cursor:pointer;
+  cursor: pointer;
   margin: 0;
   display: flex;
   align-items: center;
