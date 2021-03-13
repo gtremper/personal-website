@@ -1,6 +1,7 @@
 import { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Layout: FC = ({ children }) => {
   return (
@@ -29,12 +30,13 @@ type NavLinkProps = {
 };
 
 function NavLink({ name, href }: NavLinkProps) {
+  const router = useRouter();
   return (
-    <li>
+    <Navtab isSelected={router.pathname === href}>
       <Link href={href}>
         <a>{name}</a>
       </Link>
-    </li>
+    </Navtab>
   );
 }
 
@@ -45,20 +47,25 @@ const Header = styled.header`
   min-height: 80px;
 `;
 
-const Navbar = styled.nav`
-  flex: auto;
-  ul {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
+type NavtabProps = {
+  isSelected?: boolean;
+};
+
+const Navtab = styled.li<NavtabProps>`
+  list-style: none;
+  padding: 1px;
+  &:hover {
+    background-color: #c6e9ff;
+    border: 1px solid #a7c4d6;
+    padding: 0px;
   }
-  li {
-    list-style: none;
-    &:hover {
+
+  ${(props) =>
+    props.isSelected &&
+    css`
       background-color: #c6e9ff;
-    }
-  }
+    `}
+
   a,
   a:visited {
     text-decoration: none;
@@ -68,6 +75,16 @@ const Navbar = styled.nav`
     align-items: center;
     height: 100%;
     padding: 0 20px;
+  }
+`;
+
+const Navbar = styled.nav`
+  flex: auto;
+  ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
   }
 `;
 
